@@ -1,11 +1,11 @@
 # setup working directory
 FROM maven:3.5.3 AS build
-#RUN mkdir /app
-WORKDIR /java-webapp-docker
+RUN mkdir /app
+WORKDIR /app
 
 # maven build
-COPY src /java-webapp-docker/src
-COPY pom.xml /java-webapp-docker
+COPY src /app/src
+COPY pom.xml /app
 RUN mvn -f /app/pom.xml clean package
 
 # deploy to tomcat server
