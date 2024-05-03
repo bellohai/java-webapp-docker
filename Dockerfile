@@ -10,6 +10,6 @@ RUN mvn -f /app/pom.xml clean package
 
 # deploy to tomcat server
 FROM tomcat:9.0.44
-COPY --from=build /java-webapp-docker/target/simplewebapp.war /usr/local/tomcat/webapps
+COPY --from=build /app/target/simplewebapp.war /usr/local/tomcat/webapps
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
